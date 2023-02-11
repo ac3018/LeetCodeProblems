@@ -1,6 +1,12 @@
 import java.util.Arrays;
 
-public class NumberOfConnectedComponentsInUndirectedGraph {
+public class NumOfConnectedComponentsInUndirectedGraph_323 {
+    /**
+     * Test case(s):
+     *  Test 1:
+     *      Input: n = 5, edges = [[0, 1], [1, 2], [3, 4]]
+     *      Output: 2
+     */
 
     public int countComponents(int n, int[][] edges) {
         int res = n;
@@ -21,7 +27,7 @@ public class NumberOfConnectedComponentsInUndirectedGraph {
     }
 
     // Find the parent of node x
-    public int find(int x, int[] par) {
+    private int find(int x, int[] par) {
         int parent = par[x];
         while(par[parent] != parent) {
             // path compression
@@ -31,7 +37,7 @@ public class NumberOfConnectedComponentsInUndirectedGraph {
         return parent;
     }
 
-    public boolean union(int x, int y, int[] par, int[] rank) {
+    private boolean union(int x, int y, int[] par, int[] rank) {
         int p1 = find(x, par);
         int p2 = find(y, par);
         if(p1 == p2) return false;
@@ -47,11 +53,5 @@ public class NumberOfConnectedComponentsInUndirectedGraph {
         return true;
     }
 }
-class Solution {
-    public static void main(String[] args) {
-        NumberOfConnectedComponentsInUndirectedGraph sol = new NumberOfConnectedComponentsInUndirectedGraph();
 
-        // n = 5, edges = [[0, 1], [1, 2], [3, 4]]
-        System.out.println(sol.countComponents(5, new int[][] {{0, 1}, {1, 2}, {3, 4}}));
-    }
-}
+
